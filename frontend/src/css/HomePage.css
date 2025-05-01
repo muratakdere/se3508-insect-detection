@@ -1,0 +1,74 @@
+/* Karanlık ve sakin arka plan */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+    position: relative;
+    background: #1a1a1a; /* Koyu gri/karanlık ton */
+    overflow: hidden;
+    animation: lightWave 15s ease-in-out infinite; /* Hafif ışık dalgalanması */
+  }
+  
+  /* Işık efekti animasyonu */
+  @keyframes lightWave {
+    0% {
+      background-color: #1a1a1a;
+    }
+    50% {
+      background-color: #2e2e2e; /* Gece gökyüzü havası */
+    }
+    100% {
+      background-color: #1a1a1a;
+    }
+  }
+  
+  /* Slogan kısmı ve içerik */
+  .slogan-container {
+    text-align: center;
+    color: #fff;
+    z-index: 2;
+    position: relative;
+    animation: fadeIn 2s ease-out forwards; /* Fade-in animasyonu */
+  }
+  
+  .slogan-container h1 {
+    font-size: 4rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, color 0.3s ease;
+    color: #fff;
+  }
+  
+  .slogan-container p {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-top: 10px;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  
+  /* Hover efekti */
+  .slogan-container h1:hover,
+  .slogan-container p:hover {
+    color: #FF6347; /* Göz alıcı renk */
+    transform: scale(1.05);
+  }
+  
+  /* Fade-in animasyonu */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  
+  
+  
+  
+  

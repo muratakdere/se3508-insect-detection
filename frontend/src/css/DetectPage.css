@@ -1,0 +1,110 @@
+/* DetectPage.css - Sayfaya özel stiller */
+
+/* Genel container ayarları */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+  }
+  
+  /* Kart görünümü */
+  .card {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+  }
+  
+  /* Başlık */
+  h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Dosya Seçme alanı (input) */
+  .file-input {
+    display: none; /* Gerçek inputu gizliyoruz */
+  }
+  
+  .file-input-label {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #4caf50;
+    color: white;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+  }
+  
+  .file-input-label:hover {
+    background-color: #45a049;
+    transform: scale(1.05); /* Hover efekti: büyütme */
+  }
+  
+  /* Video önizleme */
+  .video-preview {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .video-preview video {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 10px;
+  }
+  
+  /* Yükleme butonu */
+  .upload-btn {
+    padding: 12px 25px;
+    background-color: #4caf50;
+    color: white;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: 100%;
+  }
+  
+  .upload-btn:hover {
+    background-color: #45a049;
+    transform: scale(1.05); /* Hover efekti: butonu büyütme */
+  }
+  
+  .upload-btn:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+  }
+  
+  /* Video sonuçları */
+  .video-container {
+    margin-top: 20px;
+  }
+  
+  video {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 10px;
+  }
+  
+  /* Hata mesajı */
+  .error-message {
+    color: red;
+    font-size: 1rem;
+    margin-top: 15px;
+  }
+  
+  
+  
+  

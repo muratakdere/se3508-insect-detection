@@ -1,0 +1,64 @@
+/* Navbar için temel stil */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.8); /* Şeffaf koyu arka plan */
+    color: white;
+    z-index: 100;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Hafif gölge efekti */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Arka plan rengi geçişi */
+    border-bottom: 1px solid #333; /* Alt sınır */
+  }
+  
+  /* Navbar linkleri */
+  .navbar .right a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 18px;
+    transition: color 0.3s ease, transform 0.3s ease; /* Hover efekti */
+  }
+  
+  /* Hover efekti */
+  .navbar .right a:hover {
+    color: #FF6347; /* Göz alıcı renk */
+    transform: scale(1.1); /* Linklerin büyümesi */
+  }
+  
+  /* Logo kısmı */
+  .navbar .left {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  /* Navbar scroll sırasında değişimi */
+  .navbar.scrolled {
+    background-color: rgba(0, 0, 0, 1); /* Daha koyu arka plan */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.8); /* Daha belirgin gölge */
+  }
+  
+  /* Mobil uyumlu navbar */
+  @media (max-width: 768px) {
+    .navbar {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .navbar .right {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 10px;
+    }
+  
+    .navbar .right a {
+      margin: 10px 0;
+    }
+  }
+  
