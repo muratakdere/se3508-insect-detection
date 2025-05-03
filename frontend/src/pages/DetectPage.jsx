@@ -1,25 +1,15 @@
 import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import '../css/DetectPage.css';
+import VideoAnalyzer from '../components/VideoAnalyzer';
 
 const DetectPage = () => {
   const [videoFile, setVideoFile] = useState(null);
-  const [resultURL, setResultURL] = useState(null);
+  const [isAnalyzing, setIsAnalyzing] = useState(false);
 
-  const handleUpload = async () => {
+  const handleAnalyze = () => {
     if (!videoFile) return;
-
-    const formData = new FormData();
-    formData.append('video', videoFile);
-
-    const res = await fetch('http://localhost:5000/analyze-video', {
-      method: 'POST',
-      body: formData,
-    });
-
-    const blob = await res.blob();
-    const videoURL = URL.createObjectURL(blob);
-    setResultURL(videoURL);
+    setIsAnalyzing(true); // VideoAnalyzer bileşenini göster
   };
 
   return (
@@ -28,8 +18,7 @@ const DetectPage = () => {
       <div className="container">
         <div className="card">
           <h1>Insect Detection</h1>
-          
-          {/* Video dosyasını seçince önizleme göster */}
+
           <label htmlFor="video-upload" className="file-input-label">
             Choose Video
           </label>
@@ -38,33 +27,31 @@ const DetectPage = () => {
             type="file"
             accept="video/*"
             className="file-input"
-            onChange={(e) => setVideoFile(e.target.files[0])}
+            onChange={(e) => {
+              setVideoFile(e.target.files[0]);
+              setIsAnalyzing(false); // Yeni video yüklendiğinde analiz sıfırlanır
+            }}
           />
 
-          {/* Seçilen video dosyasının önizlemesi */}
-          {videoFile && (
+          {/* Sadece analiz başlamadan önce gösterilecek preview */}
+          {videoFile && !isAnalyzing && (
             <div className="video-preview">
               <h3>Selected Video Preview</h3>
-              <video src={URL.createObjectURL(videoFile)} controls />
+              <video src={URL.createObjectURL(videoFile)} controls width="600" />
             </div>
           )}
 
           {/* Analiz butonu */}
           <button
-            onClick={handleUpload}
+            onClick={handleAnalyze}
             className="upload-btn"
             disabled={!videoFile}
           >
             Analyze Video
           </button>
 
-          {/* Sonuç videosu */}
-          {resultURL && (
-            <div className="video-container">
-              <h2>Analysis Result</h2>
-              <video src={resultURL} controls />
-            </div>
-          )}
+          {/* Gerçek zamanlı analiz */}
+          {videoFile && isAnalyzing && <VideoAnalyzer videoFile={videoFile} />}
         </div>
       </div>
     </div>
@@ -72,5 +59,8 @@ const DetectPage = () => {
 };
 
 export default DetectPage;
+
+
+
 
 
